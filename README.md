@@ -1,5 +1,9 @@
 # Latihan Form Excel
 
+> **Note**
+>
+> Format file excel yang digunakan bisa diunduh di [/public/static/example.xlsx](/public/static/example.xlsx). Jika format table yang diupload berbeda, maka akan error.
+
 Library untuk membaca file excel menggunakan [read-excel-file](https://www.npmjs.com/package/read-excel-file).
 
 ```javascript
