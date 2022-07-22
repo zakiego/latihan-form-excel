@@ -1,18 +1,36 @@
-import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon, Spacer, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import { GoMarkGithub } from "react-icons/go";
 import { MdOutlineUpload } from "react-icons/md";
 
 const Header = () => {
   return (
     <>
-      <Flex alignItems="center">
-        <Icon as={MdOutlineUpload} w={10} h={10} mr="2" opacity="16%" />
-        <Box>
-          <Heading size="md">Upload Data</Heading>
-          <Text opacity="64%">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Text>
-        </Box>
+      <Flex>
+        <Flex alignItems="center">
+          <Icon as={MdOutlineUpload} w={10} h={10} mr="2" opacity="16%" />
+          <Box>
+            <Heading size="md">Upload Data</Heading>
+            <Text opacity="64%">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </Text>
+          </Box>
+        </Flex>
+        <Spacer />
+        <a
+          href="https://github.com/zakiego/latihan-form-excel"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon
+            as={GoMarkGithub}
+            height="10"
+            width="10"
+            opacity="70%"
+            cursor="pointer"
+            _hover={{ opacity: "90%" }}
+          />
+        </a>
       </Flex>
 
       <Link href="/static/example.xlsx" passHref>
