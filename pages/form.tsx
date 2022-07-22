@@ -27,6 +27,7 @@ const Index: NextPage = () => {
   const [file, setFile] = useState<File>();
   const [rawExcel, setRawExcel] = useState<Student[]>();
   const [isSubmitted, setIsSubmitted] = useState(true);
+  const [listChecked, setListChecked] = useState<Student[]>([]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -63,6 +64,8 @@ const Index: NextPage = () => {
       <Flex minH="100vh" flexDir="column">
         <Container maxW="5xl" mt="7">
           <Header />
+
+          {JSON.stringify(file?.name)}
 
           {file && (
             <Text mt="5">
@@ -103,7 +106,12 @@ const Index: NextPage = () => {
           )}
 
           {rawExcel && (
-            <Tables rawExcel={rawExcel} setIsSubmitted={setIsSubmitted} />
+            <Tables
+              rawExcel={rawExcel}
+              setIsSubmitted={setIsSubmitted}
+              listChecked={listChecked}
+              setListChecked={setListChecked}
+            />
           )}
         </Container>
 

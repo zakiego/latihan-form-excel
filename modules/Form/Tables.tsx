@@ -19,11 +19,16 @@ import { Student } from "./types";
 type TableProps = {
   rawExcel: Student[];
   setIsSubmitted: (isSubmitted: boolean) => void;
+  listChecked: Student[];
+  setListChecked: (listChecked: Student[]) => void;
 };
 
-export const Tables = ({ rawExcel, setIsSubmitted }: TableProps) => {
-  const [listChecked, setListChecked] = useState<Student[]>([]);
-
+export const Tables = ({
+  rawExcel,
+  setIsSubmitted,
+  listChecked,
+  setListChecked,
+}: TableProps) => {
   return (
     <>
       <TableContainer mt="15px">
