@@ -19,7 +19,7 @@ const Header = () => {
         <Box
           alignSelf="a"
           mt="6"
-          bg="blue.500"
+          bg="yellow.500"
           w="max-content"
           px="2"
           rounded="sm"
