@@ -34,22 +34,26 @@ const Index: NextPage = () => {
   const finalRef = useRef();
 
   function formInputHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    if (event.target.files === null) {
+    const target = event.target;
+
+    if (target.value.length === 0 || target.files === null) {
+      console.log("Suspect Cancel was hit, no files selected.");
       return;
     }
 
-    readXlsxFile(event.target.files[0], { schema: schema }).then(
+    readXlsxFile(target.files[0], { schema: schema }).then(
       ({ rows, errors }) => {
         if (errors.length !== 0) {
           onOpen();
           return;
         }
 
-        if (event.target.files === null) {
+        if (target.files === null) {
           return;
         }
 
-        setFile(event.target.files[0]);
+        setListChecked([]);
+        setFile(target.files[0]);
         setRawExcel(rows as Student[]);
         setIsSubmitted(false);
       },
