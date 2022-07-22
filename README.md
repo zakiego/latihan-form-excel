@@ -1,30 +1,64 @@
-# Next.js and Chakra UI
+# Latihan Form Excel
 
-## Features:
+Library untuk membaca file excel menggunakan [read-excel-file](https://www.npmjs.com/package/read-excel-file).
 
-- Next.js 12
-- React 18
-- Chakra UI
-- TypeScript
-- Prettier
-- ESLint
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/zakiego/next-chakra&project-name=next-chakra&repository-name=next-chakra)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example https://github.com/zakiego/next-chakra
-
-or
-
-yarn create next-app --example https://github.com/zakiego/next-chakra
+```javascript
+import readXlsxFile from "read-excel-file";
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new) ([Documentation](https://nextjs.org/docs/deployment)).
+Secara default, file excel akan dibaca sebagai array of array. Agar formatnya menjadi JSON, maka perlu mendefinisikan schema table yang digunakan ([baca](https://gitlab.com/catamphetamine/read-excel-file#json)).
+
+[/modules/Form/schema.tsx](/modules/Form/schema.tsx)
+
+```javascript
+export const schema = {
+  Nama: {
+    prop: "name",
+    type: String,
+    required: true,
+  },
+  "Tanggal Lahir": {
+    prop: "birthDate",
+    type: String,
+    required: true,
+  },
+  "Tahun Lahir": {
+    prop: "birthYear",
+    type: Number,
+    required: true,
+  },
+  Hobi: {
+    prop: "hobby",
+    type: String,
+    required: true,
+  },
+  Alamat: {
+    prop: "address",
+    type: String,
+    required: true,
+  },
+  Kelas: {
+    prop: "class",
+    type: String,
+    required: true,
+  },
+  Sekolah: {
+    prop: "school",
+    type: String,
+    required: true,
+  },
+};
+```
+
+Kemudian masukkan schema digunakan.
+
+```javascript
+readXlsxFile(event.target.files[0], { schema }).then(({ rows, errors }) => {
+  if (errors.length !== 0) {
+    console.log(errors);
+    return;
+  }
+
+  console.log(rows);
+});
+```
