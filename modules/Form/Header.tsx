@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GoMarkGithub } from "react-icons/go";
 import { MdOutlineUpload } from "react-icons/md";
 
-const Header = () => {
+export const Header = () => {
   return (
     <>
       <Flex>
@@ -50,5 +50,3 @@ const Header = () => {
     </>
   );
 };
-
-export default Header;
