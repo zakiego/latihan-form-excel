@@ -51,7 +51,7 @@ const Index: NextPage = () => {
     }
 
     readXlsxFile(event.target.files[0], { schema }).then(({ rows, errors }) => {
-      if (errors.length != 0) {
+      if (errors.length !== 0) {
         onOpen();
         return;
       }
