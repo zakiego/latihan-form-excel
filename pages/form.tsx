@@ -69,8 +69,6 @@ const Index: NextPage = () => {
         <Container maxW="5xl" mt="7">
           <Header />
 
-          {JSON.stringify(file?.name)}
-
           {file && (
             <Text mt="5">
               Status: {isSubmitted ? "Submitted" : "Not submitted yet"}
